@@ -18,7 +18,7 @@ const BookingFormScreen = ({
   route: any;
   navigation: any;
 }) => {
-  const { item }: { item: string } = route.params;
+  const { handleSlotPress, ...item } = route.params;
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -39,6 +39,7 @@ const BookingFormScreen = ({
     if (formData.name && formData.email) {
       console.log("Form submitted:", formData);
       setShowConfirmation(true);
+      handleSlotPress(item.id);
       setFormData({ name: "", email: "", preferredTime: "" });
     } else {
       showToast("error", "Please fill in all fields.");
@@ -56,7 +57,9 @@ const BookingFormScreen = ({
         <Confirmation onClose={closeConfirmation} />
       ) : (
         <View style={styles.container}>
-          <Text style={styles.subtitle}>Selected Service : {item}</Text>
+          <Text style={styles.subtitle}>
+            Selected Service : {item.serviceName}
+          </Text>
           <TextInput
             style={styles.input}
             placeholder="Name"

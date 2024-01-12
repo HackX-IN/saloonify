@@ -4,7 +4,7 @@ import { styles } from "../Styles/Styles";
 import { Data } from "../Data";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-interface TimeSlot {
+export interface TimeSlot {
   id: string;
   time: string;
   date: string;
@@ -33,17 +33,21 @@ const HomeScreen = ({ navigation }: Navigation) => {
     setSelectedSlot(id);
   };
 
+  const availableTimeSlots = timeSlots.filter((slot) => slot.available);
+
   return (
     <View style={styles.container}>
       <Text style={styles.subtitle}>Select a service and time slot:</Text>
       <FlatList
-        data={timeSlots}
+        data={availableTimeSlots}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              handleSlotPress(item.id);
-              navigation.navigate("BookingForm", { item: item.serviceName });
+              navigation.navigate("BookingForm", {
+                ...item,
+                handleSlotPress: handleSlotPress,
+              });
             }}
             style={[
               styles.listItem,
@@ -63,7 +67,7 @@ const HomeScreen = ({ navigation }: Navigation) => {
                 <Text>{`${item.time} - ${item.date} `}</Text>
                 <Text
                   style={{ textAlign: "right" }}
-                >{`$ ${item?.price.toFixed()}`}</Text>
+                >{`₹ ${item?.price.toFixed()}`}</Text>
               </View>
             </View>
           </TouchableOpacity>
