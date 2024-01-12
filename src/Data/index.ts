@@ -2,7 +2,7 @@ export const Data = [
   {
     id: "1",
     time: "10:00 AM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Haircut",
     price: 200,
@@ -10,7 +10,7 @@ export const Data = [
   {
     id: "2",
     time: "02:30 PM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Facial",
     price: 300,
@@ -18,7 +18,7 @@ export const Data = [
   {
     id: "3",
     time: "01:00 PM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Manicure",
     price: 150,
@@ -26,7 +26,7 @@ export const Data = [
   {
     id: "4",
     time: "03:45 PM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Pedicure",
     price: 250,
@@ -34,7 +34,7 @@ export const Data = [
   {
     id: "5",
     time: "11:30 AM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Massage",
     price: 400,
@@ -42,7 +42,7 @@ export const Data = [
   {
     id: "6",
     time: "05:15 PM",
-    date: "2024-01-11",
+    date: new Date().toLocaleDateString(),
     available: true,
     serviceName: "Hair Color",
     price: 500,

@@ -34,7 +34,7 @@ const BookingFormScreen = ({
   };
 
   const handleFormSubmit = () => {
-    if (formData.name && formData.email && formData.preferredTime) {
+    if (formData.name && formData.email) {
       console.log("Form submitted:", formData);
       showToast("success", "Booking successful!");
       setFormData({ name: "", email: "", preferredTime: "" });
@@ -63,11 +63,11 @@ const BookingFormScreen = ({
       <DatePicker
         date={new Date()}
         mode="time"
-        onConfirm={(selectedTime) => {
-          const time = selectedTime || new Date();
+        onConfirm={(time) => {
+          const Time = new Date();
           setFormData({
             ...formData,
-            preferredTime: time.toLocaleTimeString("en-US", {
+            preferredTime: Time.toLocaleTimeString("en-US", {
               hour: "2-digit",
               minute: "2-digit",
             }),
