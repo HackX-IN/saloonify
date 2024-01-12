@@ -37,9 +37,16 @@ cd saloonify
 npm install
 
 ```
+
 3. Start the Expo development server:
 
 ```bash
 expo start (run development server)
 
 ```
+
+## Usage
+
+- Open the Expo app on your mobile device.
+- Scan the QR code from the Expo development server.
+- Explore available time slots, book appointments, and fill in the booking form.
